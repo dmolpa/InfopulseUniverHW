@@ -4,12 +4,17 @@ loader = unittest.TestLoader()
 
 def test_it(func):
     class TestClass(unittest.TestCase):
-        '''running 3 tests'''
-        def test_isinstance(self):
+        '''
+        running 3 tests
+        1. if function returns a generator
+        2. one argument given
+        3. two arguments given
+        '''
+        def test_instance(self):
             self.assertIsInstance(func(0,0), types.GeneratorType)
-        def test_two_values(self):
+        def test_two_args(self):
             self.assertEqual(len(list(func(0,3))), 3)
-        def test_one__value(self):
+        def test_one__arg(self):
             self.assertEqual(len(list(func(3))), 3)
 
     all_tests_from_class = loader.loadTestsFromTestCase(TestClass) # Return a suite of all test cases contained in testCaseClass
