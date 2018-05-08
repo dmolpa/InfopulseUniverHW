@@ -1,5 +1,5 @@
 import json
-
+import os
 
 class Deanery():
     '''
@@ -154,3 +154,5 @@ class Student():
         self.tests_attempted('Python','Infopulse Python Course')
         self.tests_attempted('Soft skills','Cooperation')
 
+if not os.path.exists('.\json'):
+    os.mkdir('.\json')
