@@ -129,11 +129,22 @@ class Student():
     
     def load_progress(self):
         with open(f'.\json\{self.name}.json', 'r') as file:
-            check = input('Loading progress from file, this will overwrite unsaved progress. Proceed? yes|no: ')
+            check = input(f"Loading {self.name}'s progress from file, this will overwrite unsaved progress. Proceed? yes|no: ")
             check = check.lower()
             if check == 'yes' or check =='y':
                 self.progress = json.load(file)
                 print('Progress loaded from file.')
+            else:
+                print('load interupted')
+
+    def load_n_view_progress(self):
+        with open(f'.\json\{self.name}.json', 'r') as file:
+            check = input(f"Loading {self.name}'s progress from file, this will overwrite unsaved progress. Proceed? yes|no: ")
+            check = check.lower()
+            if check == 'yes' or check =='y':
+                self.progress = json.load(file)
+                print('Progress loaded from file.')
+                self.view_progress()
             else:
                 print('load interupted')
     
@@ -142,3 +153,4 @@ class Student():
         self.tests_attempted('English','Speaking','Listening','Reading','Writing')
         self.tests_attempted('Python','Infopulse Python Course')
         self.tests_attempted('Soft skills','Cooperation')
+
